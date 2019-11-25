@@ -49,7 +49,7 @@ func getOnePage(orgName, url string) bool {
 	defer resp.Body.Close()
 
 	//match something like this:  <a href="/docker/libnetwork"
-	mstr := fmt.Sprintf(" <a href=\"/%s/[[:alnum:]-_]+\"", orgName)
+	mstr := fmt.Sprintf(" <a class=\"d-inline-block\" href=\"/%s/[[:alnum:]-_]+\"", orgName)
 
 	re := regexp.MustCompile(mstr)
 	body, err := ioutil.ReadAll(resp.Body)
